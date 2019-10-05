@@ -1,6 +1,7 @@
 // func-overload.cpp by Bill Weinman <http://bw.org/>
 // updated for C++EssT 2018-08-08
 #include <cstdio>
+#include <iostream>
 using namespace std;
 
 // volume of a cube
@@ -26,5 +27,9 @@ int main() {
     printf("volume of a 2 x 2 x 2 cube: %.3lf\n", volume(2.0));
     printf("volume of a cylinder, radius 2, height 2: %.3lf\n", volume(2.0, 2.0));
     printf("volume of a 2 x 3 x 4 cuboid: %.3lf\n", volume(2.0, 3.0, 4.0));
+
+	int x;
+	cin >> x;
+
     return 0;
 }

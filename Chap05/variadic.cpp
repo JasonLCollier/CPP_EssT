@@ -2,6 +2,7 @@
 // updated for C++EssT 2014-10-24
 #include <cstdio>
 #include <cstdarg>
+#include <iostream>
 
 // first argument is int count of remaining args
 // ... remaining args are doubles for average
@@ -32,6 +33,10 @@ int message(const char * fmt, ...) {
 int main() {
     message("This is a message");
     message("Average: %lf", average(5, 25.0, 35.7, 50.1, 127.6, 75.0));
+
+	int x;
+	std::cin >> x;
+
     return 0;
 }
 

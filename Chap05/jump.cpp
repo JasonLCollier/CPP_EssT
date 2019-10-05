@@ -52,7 +52,7 @@ int jump( const char * rs ) {
         puts("invalid choice");
         return 1;
     } else {
-        funcs[i - 1]();         // array is zero-based
+        funcs[i - 1]();        // array is zero-based
         return 1;
     }
     
