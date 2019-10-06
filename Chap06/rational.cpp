@@ -14,7 +14,7 @@ public:
     inline int numerator() const { return _n; };
     inline int denominator() const { return _d; };
     Rational & operator = ( const Rational & );
-    Rational operator + ( const Rational & ) const;
+    /*Rational operator + ( const Rational & ) const;*/
     Rational operator - ( const Rational & ) const;
     Rational operator * ( const Rational & ) const;
     Rational operator / ( const Rational & ) const;
@@ -32,9 +32,9 @@ Rational & Rational::operator = ( const Rational & rhs ) {
     return *this;
 }
 
-Rational Rational::operator + ( const Rational & rhs ) const {
+/*Rational Rational::operator + ( const Rational & rhs ) const {
     return Rational((_n * rhs._d) + (_d * rhs._n), _d * rhs._d);
-}
+}*/
 
 Rational Rational::operator - ( const Rational & rhs ) const {
     return Rational((_n * rhs._d) - (_d * rhs._n), _d * rhs._d);
@@ -54,6 +54,10 @@ std::ostream & operator << (std::ostream & o, const Rational & r) {
     else return o << r.numerator() << '/' << r.denominator();
 }
 
+Rational operator + (const Rational& lhs, const Rational& rhs) { //non-member operator overload
+	return Rational((lhs.numerator() * rhs.denominator()) + (lhs.denominator() * rhs.numerator()), lhs.denominator() * rhs.denominator());
+}
+
 int main() {
     
     Rational a = 7;        // 7/1
@@ -71,5 +75,7 @@ int main() {
     cout << a << " - " << b << " = " << a - b << endl;
     cout << a << " * " << b << " = " << a * b << endl;
     cout << a << " / " << b << " = " << a / b << endl;
+
+	cout << 14 << " + " << a << " = " << 14 + a << endl; // will only work with non-member operator overload (because + is not overloaded for (int) 5 if only Rational + is overloaded)
     return 0;
 }
