@@ -9,7 +9,8 @@ int main() {
     // cout and cin to get a string
     string istr;
     cout << "Prompt: ";
-    cin >> istr;    // one word at a time
+    //cin >> istr; // one word at a time
+	getline(cin, istr); //line
     cout << "Input: " << istr << endl;
     
     // integer formatting

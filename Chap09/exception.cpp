@@ -12,13 +12,23 @@ public:
     const char * what() const throw() { return msg; }
 };
 
+const E e_bad("Bad error!");
+const E e_worse("Worse error!");
+const E e_worst("Worst error!");
+
 void broken() {
     cout << "this is a broken function" << endl;
-    throw exception();
+    //throw exception();
+	//throw E("Ouch, error!");
+	throw e_worst;
 }
 
 int main() {
     cout << "let's have an emergency!" << endl;
-    broken();
+	try {
+		broken();
+	} catch (/*exception*/ E & e) {
+		cout << e.what() << endl;
+	}
     return 0;
 }
